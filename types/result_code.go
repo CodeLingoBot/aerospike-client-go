@@ -279,7 +279,7 @@ func KeepConnection(err error) bool {
 	}
 }
 
-// Return result code as a string.
+// ResultCodeToString returns result code as a string.
 func ResultCodeToString(resultCode ResultCode) string {
 	switch ResultCode(resultCode) {
 	case RACK_NOT_DEFINED:

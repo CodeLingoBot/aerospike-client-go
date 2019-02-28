@@ -635,36 +635,36 @@ func newPacker() *packer {
 	return &packer{}
 }
 
-// Int64ToBytes converts an int64 into slice of Bytes.
+// converts an int64 into slice of Bytes.
 func (vb *packer) WriteInt64(num int64) (int, error) {
 	return vb.WriteUint64(uint64(num))
 }
 
-// Uint64ToBytes converts an uint64 into slice of Bytes.
+// WriteUint64 converts an uint64 into slice of Bytes.
 func (vb *packer) WriteUint64(num uint64) (int, error) {
 	binary.BigEndian.PutUint64(vb.tempBuffer[:8], num)
 	vb.Write(vb.tempBuffer[:8])
 	return 8, nil
 }
 
-// Int32ToBytes converts an int32 to a byte slice of size 4
+// converts an int32 to a byte slice of size 4
 func (vb *packer) WriteInt32(num int32) (int, error) {
 	return vb.WriteUint32(uint32(num))
 }
 
-// Uint32ToBytes converts an uint32 to a byte slice of size 4
+// WriteUint32 converts an uint32 to a byte slice of size 4
 func (vb *packer) WriteUint32(num uint32) (int, error) {
 	binary.BigEndian.PutUint32(vb.tempBuffer[:4], num)
 	vb.Write(vb.tempBuffer[:4])
 	return 4, nil
 }
 
-// Int16ToBytes converts an int16 to slice of bytes
+// converts an int16 to slice of bytes
 func (vb *packer) WriteInt16(num int16) (int, error) {
 	return vb.WriteUint16(uint16(num))
 }
 
-// UInt16ToBytes converts an iuint16 to slice of bytes
+// converts an iuint16 to slice of bytes
 func (vb *packer) WriteUint16(num uint16) (int, error) {
 	binary.BigEndian.PutUint16(vb.tempBuffer[:2], num)
 	vb.Write(vb.tempBuffer[:2])

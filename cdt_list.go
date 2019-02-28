@@ -419,7 +419,7 @@ func ListIncrementOp(binName string, index int, value interface{}) *Operation {
 	return &Operation{opType: CDT_MODIFY, binName: binName, binValue: ListValue{_CDT_LIST_INCREMENT, IntegerValue(index), NewValue(value)}, encoder: listGenericOpEncoder}
 }
 
-// ListIncrementOp creates list increment operation with policy.
+// ListIncrementByOneOp creates list increment operation with policy.
 // Server increments list[index] by 1.
 // Server returns list[index] after incrementing.
 func ListIncrementByOneOp(binName string, index int) *Operation {
@@ -433,7 +433,7 @@ func ListIncrementByOneWithPolicyOp(policy *ListPolicy, binName string, index in
 	return &Operation{opType: CDT_MODIFY, binName: binName, binValue: ListValue{_CDT_LIST_INCREMENT, IntegerValue(index), IntegerValue(1), IntegerValue(policy.attributes), IntegerValue(policy.flags)}, encoder: listGenericOpEncoder}
 }
 
-// ListInsertWithPolicyOp creates a list insert operation.
+// ListIncrementWithPolicyOp creates a list insert operation.
 // Server inserts value to specified index of list bin.
 // Server returns list size on bin name.
 // It will panic is no values have been passed.

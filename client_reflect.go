@@ -52,7 +52,7 @@ func (clnt *Client) GetObject(policy *BasePolicy, key *Key, obj interface{}) err
 	return command.Execute()
 }
 
-// BatchGetObject reads multiple record headers and bins for specified keys in one batch request.
+// BatchGetObjects reads multiple record headers and bins for specified keys in one batch request.
 // The returned objects are in positional order with the original key array order.
 // If a key is not found, the positional object will not change, and the positional found boolean will be false.
 // The policy can be used to specify timeouts.
@@ -171,7 +171,7 @@ func (clnt *Client) scanNodeObjects(policy *ScanPolicy, node *Node, recordset *R
 	return command.Execute()
 }
 
-// QueryNodeObjects executes a query on all nodes in the cluster and marshals the records into the given channel.
+// QueryObjects executes a query on all nodes in the cluster and marshals the records into the given channel.
 // The query executor puts records on the channel from separate goroutines.
 // The caller can concurrently pop objects.
 //

@@ -850,7 +850,7 @@ type ListerValue struct {
 	list ListIter
 }
 
-// NewListValue generates a ListValue instance.
+// NewListerValue generates a ListValue instance.
 func NewListerValue(list ListIter) *ListerValue {
 	res := &ListerValue{
 		list: list,
@@ -929,7 +929,7 @@ func (vl MapValue) String() string {
 // Supported by Aerospike 3 servers only.
 type JsonValue map[string]interface{}
 
-// NewMapValue generates a JsonValue instance.
+// NewJsonValue generates a JsonValue instance.
 func NewJsonValue(vmap map[string]interface{}) JsonValue {
 	return JsonValue(vmap)
 }
@@ -968,7 +968,7 @@ type MapperValue struct {
 	vmap MapIter
 }
 
-// NewMapValue generates a MapperValue instance.
+// NewMapperValue generates a MapperValue instance.
 func NewMapperValue(vmap MapIter) *MapperValue {
 	res := &MapperValue{
 		vmap: vmap,
@@ -1009,7 +1009,7 @@ func (vl *MapperValue) String() string {
 // Supported by Aerospike 3.6.1 servers only.
 type GeoJSONValue string
 
-// NewMapValue generates a GeoJSONValue instance.
+// NewGeoJSONValue generates a GeoJSONValue instance.
 func NewGeoJSONValue(value string) GeoJSONValue {
 	res := GeoJSONValue(value)
 	return res

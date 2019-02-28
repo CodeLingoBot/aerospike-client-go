@@ -28,36 +28,36 @@ type keyWriter struct {
 	hash   ripemd160.Digest
 }
 
-// Int64ToBytes converts an int64 into slice of Bytes.
+// converts an int64 into slice of Bytes.
 func (vb *keyWriter) WriteInt64(num int64) (int, error) {
 	return vb.WriteUint64(uint64(num))
 }
 
-// Uint64ToBytes converts an uint64 into slice of Bytes.
+// WriteUint64 converts an uint64 into slice of Bytes.
 func (vb *keyWriter) WriteUint64(num uint64) (int, error) {
 	binary.BigEndian.PutUint64(vb.buffer[:8], num)
 	vb.hash.Write(vb.buffer[:8])
 	return 8, nil
 }
 
-// Int32ToBytes converts an int32 to a byte slice of size 4
+// converts an int32 to a byte slice of size 4
 func (vb *keyWriter) WriteInt32(num int32) (int, error) {
 	return vb.WriteUint32(uint32(num))
 }
 
-// Uint32ToBytes converts an uint32 to a byte slice of size 4
+// WriteUint32 converts an uint32 to a byte slice of size 4
 func (vb *keyWriter) WriteUint32(num uint32) (int, error) {
 	binary.BigEndian.PutUint32(vb.buffer[:4], num)
 	vb.hash.Write(vb.buffer[:4])
 	return 4, nil
 }
 
-// Int16ToBytes converts an int16 to slice of bytes
+// converts an int16 to slice of bytes
 func (vb *keyWriter) WriteInt16(num int16) (int, error) {
 	return vb.WriteUint16(uint16(num))
 }
 
-// UInt16ToBytes converts an iuint16 to slice of bytes
+// converts an iuint16 to slice of bytes
 func (vb *keyWriter) WriteUint16(num uint16) (int, error) {
 	binary.BigEndian.PutUint16(vb.buffer[:2], num)
 	vb.hash.Write(vb.buffer[:2])

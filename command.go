@@ -1427,42 +1427,42 @@ func (cmd *baseCommand) writeFieldHeader(size int, ftype FieldType) {
 	cmd.WriteByte((byte(ftype)))
 }
 
-// Int64ToBytes converts an int64 into slice of Bytes.
+// converts an int64 into slice of Bytes.
 func (cmd *baseCommand) WriteInt64(num int64) (int, error) {
 	return cmd.WriteUint64(uint64(num))
 }
 
-// Uint64ToBytes converts an uint64 into slice of Bytes.
+// WriteUint64 converts an uint64 into slice of Bytes.
 func (cmd *baseCommand) WriteUint64(num uint64) (int, error) {
 	binary.BigEndian.PutUint64(cmd.dataBuffer[cmd.dataOffset:cmd.dataOffset+8], num)
 	cmd.dataOffset += 8
 	return 8, nil
 }
 
-// Int32ToBytes converts an int32 to a byte slice of size 4
+// converts an int32 to a byte slice of size 4
 func (cmd *baseCommand) WriteInt32(num int32) (int, error) {
 	return cmd.WriteUint32(uint32(num))
 }
 
-// Uint32ToBytes converts an uint32 to a byte slice of size 4
+// WriteUint32 converts an uint32 to a byte slice of size 4
 func (cmd *baseCommand) WriteUint32(num uint32) (int, error) {
 	binary.BigEndian.PutUint32(cmd.dataBuffer[cmd.dataOffset:cmd.dataOffset+4], num)
 	cmd.dataOffset += 4
 	return 4, nil
 }
 
-// Uint32ToBytes converts an uint32 to a byte slice of size 4
+// WriteUint32At converts an uint32 to a byte slice of size 4
 func (cmd *baseCommand) WriteUint32At(num uint32, index int) (int, error) {
 	binary.BigEndian.PutUint32(cmd.dataBuffer[index:index+4], num)
 	return 4, nil
 }
 
-// Int16ToBytes converts an int16 to slice of bytes
+// converts an int16 to slice of bytes
 func (cmd *baseCommand) WriteInt16(num int16) (int, error) {
 	return cmd.WriteUint16(uint16(num))
 }
 
-// Int16ToBytes converts an int16 to slice of bytes
+// converts an int16 to slice of bytes
 func (cmd *baseCommand) WriteUint16(num uint16) (int, error) {
 	binary.BigEndian.PutUint16(cmd.dataBuffer[cmd.dataOffset:cmd.dataOffset+2], num)
 	cmd.dataOffset += 2

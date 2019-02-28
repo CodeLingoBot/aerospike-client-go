@@ -27,7 +27,7 @@ type AtomicQueue struct {
 	mutex      sync.Mutex
 }
 
-// NewQueue creates a new queue with initial size.
+// NewAtomicQueue creates a new queue with initial size.
 func NewAtomicQueue(size int) *AtomicQueue {
 	if size <= 0 {
 		panic("Queue size cannot be less than 1")
